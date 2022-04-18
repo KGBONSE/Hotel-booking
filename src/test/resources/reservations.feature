@@ -6,7 +6,7 @@ Feature: hotel reservations
   Background:
     Given I am on the hotel booking page
 
-  @smoke
+  @smoke1
   Scenario: Should make a successful reservation
     When I submit my details
       | firstName | lastName | amount | isDeposit | checkIn    | checkOut   |

@@ -63,10 +63,9 @@ public class Steps extends BaseUtil {
         boolean expected = baseUtil.homePage.confirmBooking(baseUtil.reservation);
         Assert.assertFalse("Booking not deleted", expected);
     }
-
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         baseUtil.driver = new ChromeDriver();
         baseUtil.driver.manage().window().maximize();
         baseUtil.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
