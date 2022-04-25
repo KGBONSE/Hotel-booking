@@ -2,17 +2,13 @@ package steps;
 
 import base.BaseUtil;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import models.Reservation;
 
-import java.time.Duration;
 import java.util.List;
 
 public class Steps extends BaseUtil {
@@ -53,7 +49,7 @@ public class Steps extends BaseUtil {
     }
 
     @When("I delete my booking")
-    public void i_delete_my_booking() {
+    public void i_delete_my_booking() throws InterruptedException {
         baseUtil.homePage.deleteBooking(baseUtil.reservation);
     }
 
@@ -63,18 +59,6 @@ public class Steps extends BaseUtil {
         boolean expected = baseUtil.homePage.confirmBooking(baseUtil.reservation);
         Assert.assertFalse("Booking not deleted", expected);
     }
-    @Before
-    public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-        baseUtil.driver = new ChromeDriver();
-        baseUtil.driver.manage().window().maximize();
-        baseUtil.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        baseUtil.driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
-        baseUtil.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-    }
 
-    @After
-    public void tearDown() {
-        baseUtil.driver.quit();
-    }
+
 }

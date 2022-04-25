@@ -1,2 +1,4 @@
 steps/Steps.class
+steps/TestRunner.class
+steps/Hooks.class
 base/BaseUtil.class

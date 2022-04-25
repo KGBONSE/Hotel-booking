@@ -6,7 +6,7 @@ Feature: hotel reservations
   Background:
     Given I am on the hotel booking page
 
-  @smoke1
+
   Scenario: Should make a successful reservation
     When I submit my details
       | firstName | lastName | amount | isDeposit | checkIn    | checkOut   |
@@ -22,7 +22,7 @@ Feature: hotel reservations
     Then my booking is removed from the list
 
 
-  @smoke
+
   Scenario: Should fail to submit reservation with an invalid amount
     When I submit my details
       | firstName | lastName | amount | isDeposit | checkIn    | checkOut   |
